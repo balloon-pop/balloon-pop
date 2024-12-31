@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var GRAVITY := 30
+@export var GRAVITY := 50
 # 좌우 스피드
 @export var SPEED := 70
-@export var JUMP_SPEED := -300
+@export var JUMP_SPEED := -250
 
 const GRAVITY_ACCELERATION := 5
 const SPEED_ACCELERATION := 5
-const MAX_JUMP_SPEED := -500
+const MAX_JUMP_SPEED := -450
 
 
 
