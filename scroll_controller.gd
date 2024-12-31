@@ -1,22 +1,30 @@
 extends CharacterBody2D
 
-var speed := 500
-var direction: float
-var direction2: float
+@export var GRAVITY := 30
+# 좌우 스피드
+@export var SPEED := 70
+@export var JUMP_SPEED := -300
+
+const GRAVITY_ACCELERATION := 5
+const SPEED_ACCELERATION := 5
+const MAX_JUMP_SPEED := -500
+
+
 
 func _physics_process(_delta):
-	direction = Input.get_axis("ui_up", "ui_down")
-
-	# 좌우 테스트
-	# direction2 = Input.get_axis("ui_left", "ui_right")
-	# if direction2:
-	# 	velocity.x = direction2 * speed
-	# else:
-	# 	velocity.x = move_toward(velocity.x, 0, speed)
+	var x_direction = Input.get_axis("ui_left", "ui_right")
+	velocity.y = move_toward(velocity.y, GRAVITY, GRAVITY_ACCELERATION)
 	
-	if direction:
-		velocity.y = direction * speed
+	if x_direction:
+		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED_ACCELERATION)
 	else:
-		velocity.y = move_toward(velocity.y, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, SPEED_ACCELERATION)
+	
+
+	if Input.is_action_just_pressed("ui_accept"):
+		velocity.y += JUMP_SPEED
+
+	if velocity.y < MAX_JUMP_SPEED:
+		velocity.y = MAX_JUMP_SPEED
 	
 	move_and_slide()

@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://curibn4osw5nr"]
+
+[ext_resource type="Texture2D" uid="uid://biw038v3yybfp" path="res://assets/sky-bg.png" id="1_sgqly"]
+[ext_resource type="Texture2D" uid="uid://di7lhyed56idd" path="res://assets/sky-cloud.png" id="2_fem52"]
+[ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://scenes/player/player.tscn" id="3_t8ypo"]
+
+[node name="MainTestDoo" type="Node2D"]
+
+[node name="Parallax" type="Node2D" parent="."]
+position = Vector2(0, 125)
+
+[node name="Parallax2D" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(1, 0.5)
+repeat_size = Vector2(0, 250)
+metadata/_edit_group_ = true
+
+[node name="Sky" type="Sprite2D" parent="Parallax/Parallax2D"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_sgqly")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
+scroll_scale = Vector2(1, 1.5)
+repeat_size = Vector2(0, 250)
+metadata/_edit_group_ = true
+
+[node name="Clouds" type="Sprite2D" parent="Parallax/Parallax2D2"]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("2_fem52")
+
+[node name="Player" parent="." instance=ExtResource("3_t8ypo")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, -55)
+limit_left = -62
+limit_right = 62
+position_smoothing_enabled = true
+position_smoothing_speed = 2.5
+editor_draw_limits = true
