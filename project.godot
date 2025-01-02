@@ -15,6 +15,10 @@ run/main_scene="res://main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+
 [display]
 
 window/size/viewport_width=50
@@ -25,6 +29,10 @@ window/size/window_height_override=1000
 window/stretch/mode="canvas_items"
 window/stretch/aspect="keep_height"
 window/canvas_textures/default_texture_filter=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [rendering]
 
