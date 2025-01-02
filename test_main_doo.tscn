@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://curibn4osw5nr"]
+[gd_scene load_steps=8 format=3 uid="uid://baegkoc4y4m70"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2t00c"]
-[ext_resource type="Texture2D" uid="uid://biw038v3yybfp" path="res://assets/sky-bg.png" id="1_sgqly"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_e1a21"]
-[ext_resource type="Texture2D" uid="uid://di7lhyed56idd" path="res://assets/sky-cloud.png" id="2_fem52"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_ftod8"]
+[ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_sgqly"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_5yj8a"]
+[ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_fem52"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_1p4cp"]
 [ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://scenes/player/player.tscn" id="3_t8ypo"]
 
-[sub_resource type="Resource" id="Resource_ko45h"]
-script = ExtResource("3_ftod8")
+[sub_resource type="Resource" id="Resource_ly4sr"]
+script = ExtResource("3_1p4cp")
 duration = 1.0
 transition = 0
 ease = 2
@@ -16,7 +16,7 @@ ease = 2
 [node name="MainTestDoo" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -65)
+physics_interpolation_mode = 1
 position_smoothing_speed = 2.5
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -26,39 +26,34 @@ script = ExtResource("1_2t00c")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(0, -65)
-script = ExtResource("2_e1a21")
+script = ExtResource("2_5yj8a")
 follow_mode = 5
 follow_target = NodePath("../Player")
-tween_resource = SubResource("Resource_ko45h")
-follow_offset = Vector2(0, -65)
+tween_resource = SubResource("Resource_ly4sr")
 follow_damping = true
 follow_damping_value = Vector2(0.25, 0.25)
 follow_axis_lock = 1
-dead_zone_width = 0.1
-dead_zone_height = 0.1
 
 [node name="Parallax" type="Node2D" parent="."]
-position = Vector2(0, 125)
+position = Vector2(0, 50)
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(1, 0.5)
-repeat_size = Vector2(0, 250)
+repeat_size = Vector2(0, 100)
 metadata/_edit_group_ = true
 
 [node name="Sky" type="Sprite2D" parent="Parallax/Parallax2D"]
 texture_filter = 1
-scale = Vector2(5, 5)
 texture = ExtResource("1_sgqly")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(1, 1.5)
-repeat_size = Vector2(0, 250)
+repeat_size = Vector2(0, 100)
 metadata/_edit_group_ = true
 
 [node name="Clouds" type="Sprite2D" parent="Parallax/Parallax2D2"]
 texture_filter = 1
-scale = Vector2(5, 5)
 texture = ExtResource("2_fem52")
 
 [node name="Player" parent="." instance=ExtResource("3_t8ypo")]
+scale = Vector2(0.35, 0.35)
