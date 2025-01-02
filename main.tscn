@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ia6vb6mahyu5"]
 
-[ext_resource type="Texture2D" uid="uid://lndq2ujt5hpq" path="res://assets/sky-bg.png" id="1_1chip"]
+[ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_k7wvx"]
 [ext_resource type="Script" path="res://scroll_controller.gd" id="3_xcrau"]
 [ext_resource type="Texture2D" uid="uid://ctkdco7dpy4xy" path="res://assets/coin_new.png" id="4_wuk1j"]
@@ -49,14 +49,14 @@ size = Vector2(42, 42)
 [node name="Parallax" type="Node2D" parent="."]
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(1, 0.4)
+scroll_scale = Vector2(1, 0.5)
 repeat_size = Vector2(0, 100)
 repeat_times = 3
 metadata/_edit_group_ = true
 
 [node name="Sky" type="Sprite2D" parent="Parallax/Parallax2D"]
 texture_filter = 1
-texture = ExtResource("1_1chip")
+texture = ExtResource("1_nbwm3")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(1, 1.5)
