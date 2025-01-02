@@ -10,7 +10,6 @@ const SPEED_ACCELERATION := 5
 const MAX_JUMP_SPEED := -450
 
 
-
 func _physics_process(_delta):
 	var x_direction = Input.get_axis("ui_left", "ui_right")
 	velocity.y = move_toward(velocity.y, GRAVITY, GRAVITY_ACCELERATION)
