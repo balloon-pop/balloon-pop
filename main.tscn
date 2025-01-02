@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://ia6vb6mahyu5"]
+[gd_scene load_steps=8 format=3 uid="uid://ia6vb6mahyu5"]
 
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_k7wvx"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_pcy7b"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_o1wv2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_arat3"]
+[ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://scenes/player/player.tscn" id="6_j160p"]
+
+[sub_resource type="Resource" id="Resource_omnjj"]
+script = ExtResource("5_arat3")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Main" type="Node2D"]
 
@@ -27,3 +37,27 @@ metadata/_edit_group_ = true
 texture_filter = 1
 texture = ExtResource("2_k7wvx")
 offset = Vector2(0, 25)
+
+[node name="Player" parent="." instance=ExtResource("6_j160p")]
+scale = Vector2(0.35, 0.35)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, -25)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_pcy7b")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(0, -25)
+script = ExtResource("4_o1wv2")
+follow_mode = 5
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_omnjj")
+follow_offset = Vector2(0, -25)
+follow_damping = true
+follow_damping_value = Vector2(0.15, 0.15)
+follow_axis_lock = 1
