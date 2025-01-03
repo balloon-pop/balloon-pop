@@ -37,7 +37,7 @@ texture = ExtResource("1_s4fyy")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="WindLabel" type="Label" parent="Control"]
+[node name="AirLabel" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

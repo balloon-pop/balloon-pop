@@ -1,13 +1,23 @@
 extends CharacterBody2D
 
-@export var GRAVITY := 50
+@export var GRAVITY := 40
 # 좌우 스피드
 @export var SPEED := 70
-@export var JUMP_SPEED := -250
+@export var JUMP_SPEED := -200
 
-const GRAVITY_ACCELERATION := 5
+const GRAVITY_ACCELERATION := 1.5
 const SPEED_ACCELERATION := 5
-const MAX_JUMP_SPEED := -450
+const MAX_JUMP_SPEED := -350
+
+
+func air_jump():
+	if not PlayerManager.can_air_jump(): return
+
+	PlayerManager.on_air_jump.emit()
+
+	velocity.y = JUMP_SPEED
+	if velocity.y < MAX_JUMP_SPEED:
+		velocity.y = MAX_JUMP_SPEED
 
 
 func _physics_process(_delta):
@@ -18,12 +28,8 @@ func _physics_process(_delta):
 		velocity.x = move_toward(velocity.x, x_direction * SPEED, SPEED_ACCELERATION)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED_ACCELERATION)
-	
 
 	if Input.is_action_just_pressed("ui_accept"):
-		velocity.y += JUMP_SPEED
-
-	if velocity.y < MAX_JUMP_SPEED:
-		velocity.y = MAX_JUMP_SPEED
+		air_jump()
 	
 	move_and_slide()

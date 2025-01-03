@@ -1,11 +1,14 @@
 extends CanvasLayer
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var air_label: Label = $Control/AirLabel
+
+
 func _ready() -> void:
-	pass # Replace with function body.
+	PlayerManager.on_air_jump.connect(_on_air_jump)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_air_jump() -> void:
+	air_label.text = "%02d" % PlayerManager.air_count
+	if PlayerManager.air_count <= 0:
+		air_label.label_settings.font_color = Color.RED
