@@ -2,6 +2,7 @@
 extends Node
 
 signal on_air_count_change(count: int)
+signal player_altitude_change(altitude: int)
 
 const MAX_AIR_COUNT := 3
 const AIR_JUMP_COOL_TIME := 5

@@ -5,7 +5,6 @@ extends CharacterBody2D
 @export var SPEED := 70
 @export var JUMP_SPEED := -200
 
-
 const GRAVITY_ACCELERATION := 1.5
 const SPEED_ACCELERATION := 5
 const MAX_JUMP_SPEED := -350
@@ -33,5 +32,8 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_pressed("ui_accept"):
 		air_jump()
+
+	var altitude = round(position.y) / 5 * -1;
+	PlayerManager.player_altitude_change.emit(altitude)
 	
 	move_and_slide()
