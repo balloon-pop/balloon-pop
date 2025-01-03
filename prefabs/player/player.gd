@@ -5,15 +5,25 @@ extends CharacterBody2D
 @export var SPEED := 70
 @export var JUMP_SPEED := -200
 
+@onready var dash_timer: Timer = $DashTimer
+
 const GRAVITY_ACCELERATION := 1.5
 const SPEED_ACCELERATION := 5
 const MAX_JUMP_SPEED := -350
 
 
+func _ready():
+	PlayerManager.on_air_count_change.connect(_on_air_count_change)
+	dash_timer.timeout.connect(_on_dash_timer_timeout)
+
+
+
+
 func air_jump():
 	if not PlayerManager.can_air_jump(): return
 
-	PlayerManager.on_air_jump.emit()
+	var current_air_count = max(PlayerManager.air_count - 1, 0)
+	PlayerManager.on_air_count_change.emit(current_air_count)
 
 	velocity.y = JUMP_SPEED
 	if velocity.y < MAX_JUMP_SPEED:
@@ -33,3 +43,12 @@ func _physics_process(_delta):
 		air_jump()
 	
 	move_and_slide()
+
+
+func _on_air_count_change(_count: int):
+	if dash_timer.is_stopped() && PlayerManager.air_count < PlayerManager.MAX_AIR_COUNT:
+		dash_timer.start()
+
+
+func _on_dash_timer_timeout():
+	PlayerManager.restore_air_count(1)

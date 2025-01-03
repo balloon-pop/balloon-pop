@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c7s2nc7vy2sro"]
 
-[ext_resource type="Script" path="res://scroll_controller.gd" id="1_xo2jn"]
-[ext_resource type="Texture2D" uid="uid://cl3tujt4rjsup" path="res://scenes/player/balloon.png" id="2_e1u4u"]
+[ext_resource type="Script" path="res://prefabs/player/player.gd" id="1_xo2jn"]
+[ext_resource type="Texture2D" uid="uid://cl3tujt4rjsup" path="res://prefabs/player/balloon.png" id="2_e1u4u"]
 
 [sub_resource type="Animation" id="Animation_momoi"]
 length = 0.6
@@ -61,3 +61,7 @@ hframes = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_5551e")
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
