@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfhybq3l8u1q6"
-path="res://.godot/imported/wind.png-13b03d36e9ec981398b84736066afdb7.ctex"
+path="res://.godot/imported/wind.png-e21a9931dafafe0222869b11c804ca94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wind.png"
-dest_files=["res://.godot/imported/wind.png-13b03d36e9ec981398b84736066afdb7.ctex"]
+source_file="res://prefabs/main_hud/wind.png"
+dest_files=["res://.godot/imported/wind.png-e21a9931dafafe0222869b11c804ca94.ctex"]
 
 [params]
 

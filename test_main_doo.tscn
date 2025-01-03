@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://baegkoc4y4m70"]
+[gd_scene load_steps=9 format=3 uid="uid://baegkoc4y4m70"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2t00c"]
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_sgqly"]
@@ -6,20 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_fem52"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_1p4cp"]
 [ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://scenes/player/player.tscn" id="3_t8ypo"]
-[ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://assets/wind.png" id="7_lbd0w"]
-[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="8_dfedl"]
+[ext_resource type="PackedScene" uid="uid://msugb25k5nsm" path="res://prefabs/main_hud/main_hud.tscn" id="7_dj6ty"]
 
 [sub_resource type="Resource" id="Resource_ly4sr"]
 script = ExtResource("3_1p4cp")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_krecp"]
-font = ExtResource("8_dfedl")
-font_size = 5
-font_color = Color(0, 0, 0, 1)
-outline_size = 2
 
 [node name="MainTestDoo" type="Node2D"]
 
@@ -69,31 +62,4 @@ texture = ExtResource("2_fem52")
 [node name="Player" parent="." instance=ExtResource("3_t8ypo")]
 scale = Vector2(0.35, 0.35)
 
-[node name="HUD" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="HUD"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -12.0
-offset_top = 3.0
-offset_right = -6.0
-offset_bottom = 8.0
-grow_horizontal = 0
-texture = ExtResource("7_lbd0w")
-expand_mode = 3
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="HUD"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -5.0
-offset_top = 2.0
-offset_right = -2.0
-offset_bottom = 10.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 3
-text = "5"
-label_settings = SubResource("LabelSettings_krecp")
-vertical_alignment = 1
+[node name="MainHud" parent="." instance=ExtResource("7_dj6ty")]
