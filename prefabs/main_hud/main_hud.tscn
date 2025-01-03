@@ -6,7 +6,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_krecp"]
 font = ExtResource("2_n1h5s")
-font_size = 5
+font_size = 6
 font_color = Color(0, 0, 0, 1)
 outline_size = 2
 
@@ -24,18 +24,22 @@ offset_right = -3.0
 offset_bottom = 9.0
 grow_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect2" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -2.5
-offset_right = 5.0
-offset_bottom = 2.5
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = 13.0
 grow_vertical = 2
-texture = ExtResource("1_s4fyy")
-expand_mode = 3
-stretch_mode = 5
+scale = Vector2(0.35, 0.35)
+value = 59.0
+fill_mode = 4
+texture_under = ExtResource("1_s4fyy")
+texture_progress = ExtResource("1_s4fyy")
+tint_under = Color(0.24, 0.1464, 0.1464, 0.784314)
 
 [node name="AirLabel" type="Label" parent="Control"]
 layout_mode = 1
@@ -45,8 +49,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -5.0
-offset_top = -3.0
-offset_bottom = 5.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = 4.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 3
