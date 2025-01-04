@@ -1,6 +1,7 @@
 # PlayerManager
 extends Node
 
+signal player_altitude_change(altitude: int)
 signal air_count_change(count: int)
 
 const MAX_AIR_COUNT := 3
