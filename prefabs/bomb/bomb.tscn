@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://38c2dpg1vcml"]
+
+[ext_resource type="Texture2D" uid="uid://bveh0m8drr552" path="res://prefabs/bomb/bomb.png" id="1_bwpac"]
+[ext_resource type="Script" path="res://prefabs/bomb/bomb.gd" id="1_u7s03"]
+
+[sub_resource type="Animation" id="Animation_7d4g7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lywfx"]
+resource_name = "explode"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_nxy65"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.233333, 0.333333, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msncn"]
+_data = {
+"RESET": SubResource("Animation_7d4g7"),
+"explode": SubResource("Animation_lywfx"),
+"idle": SubResource("Animation_nxy65")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qukog"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luxu7"]
+radius = 6.66667
+height = 20.0
+
+[node name="Bomb" type="Area2D" groups=["bomb"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2147483648
+collision_mask = 1073741824
+script = ExtResource("1_u7s03")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bwpac")
+hframes = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_msncn")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+scale = Vector2(0.3, 0.3)
+shape = SubResource("CircleShape2D_qukog")
+
+[node name="HitBox" type="Area2D" parent="."]
+scale = Vector2(1.2, 1.2)
+collision_layer = 536870912
+collision_mask = 1073741824
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_luxu7")
+debug_color = Color(0.610581, 0.53199, 0.244309, 0.42)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
