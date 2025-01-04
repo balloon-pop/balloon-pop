@@ -6,12 +6,13 @@ extends CanvasLayer
 @onready var altitude_label: Label = $Control/AltitudeLabel
 
 func _ready() -> void:
-	PlayerManager.on_air_count_change.connect(_on_air_count_change)
 	PlayerManager.player_altitude_change.connect(_on_player_altitude_change)
+	PlayerManager.air_count_change.connect(_on_air_count_change)
+
 
 func _process(_delta):
-	var dash_cool_percent = 1 - PlayerManager.dash_timer.time_left / PlayerManager.dash_timer.wait_time
-	wind_texture.value = wind_texture.max_value * dash_cool_percent
+	var air_jump_cool_percent = 1 - PlayerManager.air_jump_timer.time_left / PlayerManager.air_jump_timer.wait_time
+	wind_texture.value = wind_texture.max_value * air_jump_cool_percent
 
 func _on_player_altitude_change(altitude: int) -> void:
 	altitude_label.text = "%dm" % altitude
