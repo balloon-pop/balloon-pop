@@ -9,8 +9,8 @@ func _ready() -> void:
 
 
 func _process(_delta):
-	var dash_cool_percent = 1 - PlayerManager.dash_timer.time_left / PlayerManager.dash_timer.wait_time
-	wind_texture.value = wind_texture.max_value * dash_cool_percent
+	var air_jump_cool_percent = 1 - PlayerManager.air_jump_timer.time_left / PlayerManager.air_jump_timer.wait_time
+	wind_texture.value = wind_texture.max_value * air_jump_cool_percent
 
 
 func _on_air_count_change(count: int) -> void:
