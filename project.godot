@@ -35,6 +35,12 @@ window/canvas_textures/default_texture_filter=1
 
 enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
+[layer_names]
+
+2d_physics/layer_30="BombHitBox"
+2d_physics/layer_31="Balloon"
+2d_physics/layer_32="Bomb"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
