@@ -15,7 +15,7 @@ func air_jump():
 	if not PlayerManager.can_air_jump(): return
 
 	var current_air_count = max(PlayerManager.air_count - 1, 0)
-	PlayerManager.on_air_count_change.emit(current_air_count)
+	PlayerManager.air_count_change.emit(current_air_count)
 
 	velocity.y = JUMP_SPEED
 	if velocity.y < MAX_JUMP_SPEED:

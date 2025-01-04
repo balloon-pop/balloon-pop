@@ -1,7 +1,7 @@
 # PlayerManager
 extends Node
 
-signal on_air_count_change(count: int)
+signal air_count_change(count: int)
 
 const MAX_AIR_COUNT := 3
 const AIR_JUMP_COOL_TIME := 5
@@ -19,7 +19,7 @@ func init_dash_timer():
 
 
 func restore_air_count(value):
-	on_air_count_change.emit(min(air_count + value, MAX_AIR_COUNT))
+	air_count_change.emit(min(air_count + value, MAX_AIR_COUNT))
 
 
 func can_air_jump() -> bool:
@@ -28,7 +28,7 @@ func can_air_jump() -> bool:
 
 func _ready() -> void:
 	init_dash_timer()
-	on_air_count_change.connect(_on_air_count_change)
+	air_count_change.connect(_on_air_count_change)
 
 
 func _on_air_count_change(count: int) -> void:

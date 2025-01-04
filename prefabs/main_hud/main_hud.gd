@@ -5,7 +5,8 @@ extends CanvasLayer
 @onready var wind_texture: TextureProgressBar = $Control/TextureRect2
 
 func _ready() -> void:
-	PlayerManager.on_air_count_change.connect(_on_air_count_change)
+	PlayerManager.air_count_change.connect(_on_air_count_change)
+
 
 func _process(_delta):
 	var dash_cool_percent = 1 - PlayerManager.dash_timer.time_left / PlayerManager.dash_timer.wait_time
