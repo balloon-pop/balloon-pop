@@ -8,7 +8,8 @@ func _ready() -> void:
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	print("item entered")
+	PlayerManager.restore_air_count(1)
+	queue_free()
 
 func _on_screen_exited() -> void:
 	if position.y > PlayerManager.position.y:
