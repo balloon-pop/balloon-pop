@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://baegkoc4y4m70"]
+[gd_scene load_steps=11 format=3 uid="uid://baegkoc4y4m70"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2t00c"]
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_sgqly"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_1p4cp"]
 [ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://prefabs/player/player.tscn" id="3_t8ypo"]
 [ext_resource type="PackedScene" uid="uid://msugb25k5nsm" path="res://prefabs/main_hud/main_hud.tscn" id="7_dj6ty"]
+[ext_resource type="PackedScene" uid="uid://ceg5t28yq0k4j" path="res://prefabs/wind/wind.tscn" id="8_xvj7y"]
+[ext_resource type="Script" path="res://prefabs/item_spawner/item_spawner.gd" id="9_147af"]
 
 [sub_resource type="Resource" id="Resource_ly4sr"]
 script = ExtResource("3_1p4cp")
@@ -61,5 +63,10 @@ texture = ExtResource("2_fem52")
 
 [node name="Player" parent="." instance=ExtResource("3_t8ypo")]
 scale = Vector2(0.35, 0.35)
+JUMP_SPEED = -150
 
 [node name="MainHud" parent="." instance=ExtResource("7_dj6ty")]
+
+[node name="ItemSpawner" type="Node" parent="."]
+script = ExtResource("9_147af")
+item = Array[PackedScene]([ExtResource("8_xvj7y")])
