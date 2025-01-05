@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://msugb25k5nsm"]
+
+[ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="1_s4fyy"]
+[ext_resource type="Script" path="res://prefabs/main_hud/main_hud.gd" id="1_vymi4"]
+[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="2_n1h5s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6cpi1"]
+font = ExtResource("2_n1h5s")
+font_size = 5
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_krecp"]
+font = ExtResource("2_n1h5s")
+font_size = 6
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_vymi4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -14.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 9.0
+grow_horizontal = 0
+
+[node name="AltitudeLabel" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = -34.0
+offset_top = 1.0
+offset_right = -29.0
+offset_bottom = 24.0
+text = "0m"
+label_settings = SubResource("LabelSettings_6cpi1")
+
+[node name="TextureRect2" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -3.0
+offset_right = 15.0
+offset_bottom = 13.0
+grow_vertical = 2
+scale = Vector2(0.35, 0.35)
+value = 59.0
+fill_mode = 4
+texture_under = ExtResource("1_s4fyy")
+texture_progress = ExtResource("1_s4fyy")
+tint_under = Color(0.24, 0.1464, 0.1464, 0.784314)
+
+[node name="AirLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 3
+text = "03"
+label_settings = SubResource("LabelSettings_krecp")
+vertical_alignment = 1
