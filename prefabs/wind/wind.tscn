@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ceg5t28yq0k4j"]
+
+[ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="1_n6xi6"]
+[ext_resource type="Script" path="res://prefabs/wind/wind.gd" id="1_upvc0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqdgw"]
+radius = 5.0
+
+[node name="Wind" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_upvc0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_n6xi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vqdgw")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." groups=["item"]]
+scale = Vector2(0.5, 0.5)
