@@ -8,6 +8,7 @@ extends CanvasLayer
 func _ready() -> void:
 	PlayerManager.player_altitude_change.connect(_on_player_altitude_change)
 	PlayerManager.air_count_change.connect(_on_air_count_change)
+	print('MainHud Ready : ', ScoreManager.highest_altitude)
 
 
 func _process(_delta):
