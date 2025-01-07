@@ -17,3 +17,5 @@ func _ready():
 
 func on_game_state_change(new_state: GameState):
 	game_state = new_state
+	if new_state == GameState.END:
+		get_tree().paused = true
