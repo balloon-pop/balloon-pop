@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://jdyhnfjadvfn"]
+[gd_scene load_steps=11 format=3 uid="uid://jdyhnfjadvfn"]
 
+[ext_resource type="Script" path="res://test_main_chan.gd" id="1_1ui6k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vojmx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_dmjfy"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_y8u3p"]
@@ -7,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="5_04r44"]
 [ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://prefabs/player/player.tscn" id="6_7gqrs"]
 [ext_resource type="PackedScene" uid="uid://msugb25k5nsm" path="res://prefabs/main_hud/main_hud.tscn" id="7_yy4gn"]
+[ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bomb/bomb.tscn" id="8_4v7kv"]
 
 [sub_resource type="Resource" id="Resource_3y7a6"]
 script = ExtResource("3_y8u3p")
@@ -15,6 +17,8 @@ transition = 0
 ease = 2
 
 [node name="TestMainChan" type="Node2D"]
+script = ExtResource("1_1ui6k")
+bomb_scene = ExtResource("8_4v7kv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
@@ -63,5 +67,11 @@ texture = ExtResource("5_04r44")
 
 [node name="Player" parent="." instance=ExtResource("6_7gqrs")]
 scale = Vector2(0.35, 0.35)
+GRAVITY = 20
+SPEED = 30
+JUMP_SPEED = -100
 
 [node name="MainHud" parent="." instance=ExtResource("7_yy4gn")]
+
+[node name="BombTimer" type="Timer" parent="."]
+one_shot = true

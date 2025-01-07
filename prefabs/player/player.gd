@@ -33,7 +33,7 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		air_jump()
 
-	var altitude = round(position.y) / 5 * -1;
-	PlayerManager.player_altitude_change.emit(altitude)
+	PlayerManager.player_position_change.emit(position)
+	PlayerManager.player_velocity_change.emit(velocity)
 	
 	move_and_slide()
