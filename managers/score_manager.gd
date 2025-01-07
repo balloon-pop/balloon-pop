@@ -4,13 +4,16 @@ const SAVE_PATH = "user://altitude.save"
 var highest_altitude = 0
 
 func _ready() -> void:
-    PlayerManager.player_dead.connect(_on_player_dead) # 이게 아니더라도 게임이 끝났다는 상태를 읽으면 된다.
+    GameManager.game_state_change.connect(_on_change_game_state)
     load_high_score()
-    print('Highest Altitude in _ready():', highest_altitude)
+    print('Highest Altitude in _ready() (score_manager):', highest_altitude)
+  
 
-func _on_player_dead(altitude: int) -> void:
-    highest_altitude = max(highest_altitude, altitude)
-    save_high_score()
+func _on_change_game_state(state: GameManager.GameState) -> void:
+    if state == GameManager.GameState.END:
+        print('Highest Altitude:', highest_altitude, '/PlayerManager.altitude: ', PlayerManager.altitude)
+        highest_altitude = max(highest_altitude, PlayerManager.altitude)
+        save_high_score()
 
 func load_high_score():
     var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
