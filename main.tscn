@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ia6vb6mahyu5"]
+[gd_scene load_steps=13 format=3 uid="uid://ia6vb6mahyu5"]
 
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_k7wvx"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://msugb25k5nsm" path="res://prefabs/main_hud/main_hud.tscn" id="7_knssi"]
 [ext_resource type="Script" path="res://prefabs/item_spawner/item_spawner.gd" id="8_r1nw7"]
 [ext_resource type="PackedScene" uid="uid://ceg5t28yq0k4j" path="res://prefabs/wind/wind.tscn" id="9_mssli"]
+[ext_resource type="Script" path="res://prefabs/bomb_spawner/bomb_spawner.gd" id="10_frlgb"]
+[ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bomb/bomb.tscn" id="10_jgm1b"]
 
 [sub_resource type="Resource" id="Resource_omnjj"]
 script = ExtResource("5_arat3")
@@ -70,3 +72,7 @@ follow_axis_lock = 1
 [node name="ItemSpawner" type="Node" parent="."]
 script = ExtResource("8_r1nw7")
 item = Array[PackedScene]([ExtResource("9_mssli")])
+
+[node name="BombSpawner" type="Node" parent="."]
+script = ExtResource("10_frlgb")
+bomb_scene = ExtResource("10_jgm1b")
