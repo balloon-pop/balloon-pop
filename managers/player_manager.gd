@@ -5,7 +5,6 @@ signal player_altitude_change(altitude: int)
 signal air_count_change(count: int)
 signal player_position_change(position: Vector2)
 signal player_velocity_change(velocity: Vector2)
-signal player_dead(last_altitude: int)
 
 const MAX_AIR_COUNT := 3
 const AIR_JUMP_COOL_TIME := 5
@@ -37,17 +36,17 @@ func can_air_jump() -> bool:
 	return air_count > 0
 
 
-# test용 죽음 타이머 생성
+# test용 죽음 타이머 생성. 시작하고 3초 뒤에 죽음
 func create_dead_timer():
 	var dead_timer = Timer.new()
 	dead_timer.one_shot = true
-	dead_timer.wait_time = 3
+	dead_timer.wait_time = 10
 	dead_timer.timeout.connect(on_dead_timer_timeout)
 	add_child(dead_timer)
 	dead_timer.start()
 
 func on_dead_timer_timeout() -> void:
-	player_dead.emit(altitude) # 테스트용 최종 고도를 전달
+	GameManager.game_state_change.emit(GameManager.GameState.END)
 
 func _ready() -> void:
 	init_air_jump_timer()
