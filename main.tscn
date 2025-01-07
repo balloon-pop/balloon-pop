@@ -18,7 +18,7 @@ duration = 1.0
 transition = 0
 ease = 2
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" groups=["Persist"]]
 
 [node name="Parallax" type="Node2D" parent="."]
 
