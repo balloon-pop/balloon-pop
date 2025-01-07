@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ia6vb6mahyu5"]
+[gd_scene load_steps=11 format=3 uid="uid://ia6vb6mahyu5"]
 
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Texture2D" uid="uid://d1r16ax0mt68o" path="res://assets/sky-cloud.png" id="2_k7wvx"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_o1wv2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_arat3"]
 [ext_resource type="PackedScene" uid="uid://c7s2nc7vy2sro" path="res://prefabs/player/player.tscn" id="6_j160p"]
+[ext_resource type="PackedScene" uid="uid://msugb25k5nsm" path="res://prefabs/main_hud/main_hud.tscn" id="7_knssi"]
+[ext_resource type="Script" path="res://prefabs/item_spawner/item_spawner.gd" id="8_r1nw7"]
+[ext_resource type="PackedScene" uid="uid://ceg5t28yq0k4j" path="res://prefabs/wind/wind.tscn" id="9_mssli"]
 
 [sub_resource type="Resource" id="Resource_omnjj"]
 script = ExtResource("5_arat3")
@@ -61,3 +64,9 @@ follow_offset = Vector2(0, -25)
 follow_damping = true
 follow_damping_value = Vector2(0.15, 0.15)
 follow_axis_lock = 1
+
+[node name="MainHud" parent="." instance=ExtResource("7_knssi")]
+
+[node name="ItemSpawner" type="Node" parent="."]
+script = ExtResource("8_r1nw7")
+item = Array[PackedScene]([ExtResource("9_mssli")])

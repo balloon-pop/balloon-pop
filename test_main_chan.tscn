@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jdyhnfjadvfn"]
+[gd_scene load_steps=11 format=3 uid="uid://cgrpjkg8mxll0"]
 
 [ext_resource type="Script" path="res://test_main_chan.gd" id="1_1ui6k"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_vojmx"]

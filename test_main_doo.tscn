@@ -45,6 +45,7 @@ position = Vector2(0, 50)
 
 [node name="Parallax2D" type="Parallax2D" parent="Parallax"]
 scroll_scale = Vector2(1, 0.5)
+scroll_offset = Vector2(27, 20)
 repeat_size = Vector2(0, 100)
 metadata/_edit_group_ = true
 
