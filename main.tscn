@@ -52,6 +52,7 @@ scale = Vector2(0.35, 0.35)
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(0, -8)
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
@@ -69,6 +70,7 @@ follow_offset = Vector2(0, -8)
 follow_damping = true
 follow_damping_value = Vector2(0.15, 0.15)
 follow_axis_lock = 1
+draw_limits = true
 
 [node name="MainHud" parent="." instance=ExtResource("7_knssi")]
 visible = false
