@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxy4x5ge77dqt"]
+
+[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="1_02dxb"]
+[ext_resource type="Script" path="res://prefabs/start_hud/start_hud.gd" id="1_31yy4"]
+[ext_resource type="StyleBox" uid="uid://rg2fbgri1yl7" path="res://go_button.tres" id="2_ih7xl"]
+[ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="2_jqitr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ujdh"]
+font = ExtResource("1_02dxb")
+font_size = 12
+font_color = Color(1, 0.133333, 0.27451, 0.647059)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[node name="StartHud" type="CanvasLayer"]
+script = ExtResource("1_31yy4")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -21.0
+offset_top = -39.0
+offset_right = 21.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Balloon"
+label_settings = SubResource("LabelSettings_6ujdh")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "POP"
+label_settings = SubResource("LabelSettings_6ujdh")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = 25.0
+offset_right = 13.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_hover_color = Color(0.164706, 0.741176, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.34902, 0.490196, 1)
+theme_override_colors/font_focus_color = Color(0.164706, 0.741176, 1, 1)
+theme_override_colors/font_color = Color(0.164706, 0.741176, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_02dxb")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/focus = ExtResource("2_ih7xl")
+theme_override_styles/disabled_mirrored = ExtResource("2_ih7xl")
+theme_override_styles/disabled = ExtResource("2_ih7xl")
+theme_override_styles/hover_pressed_mirrored = ExtResource("2_ih7xl")
+theme_override_styles/hover_pressed = ExtResource("2_ih7xl")
+theme_override_styles/hover_mirrored = ExtResource("2_ih7xl")
+theme_override_styles/hover = ExtResource("2_ih7xl")
+theme_override_styles/pressed_mirrored = ExtResource("2_ih7xl")
+theme_override_styles/pressed = ExtResource("2_ih7xl")
+theme_override_styles/normal_mirrored = ExtResource("2_ih7xl")
+theme_override_styles/normal = ExtResource("2_ih7xl")
+text = "GO!"
+icon = ExtResource("2_jqitr")
+expand_icon = true
