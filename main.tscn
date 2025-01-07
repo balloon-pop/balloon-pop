@@ -51,7 +51,7 @@ scale = Vector2(0.35, 0.35)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(0, -8.00205)
+position = Vector2(0, -8)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
