@@ -59,7 +59,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_qukog"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_luxu7"]
-radius = 6.66667
+radius = 8.33333
 height = 20.0
 
 [node name="Bomb" type="Area2D" groups=["bomb"]]
@@ -92,3 +92,4 @@ shape = SubResource("CapsuleShape2D_luxu7")
 debug_color = Color(0.610581, 0.53199, 0.244309, 0.42)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(1, 1.2)

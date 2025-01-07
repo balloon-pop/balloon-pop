@@ -36,24 +36,11 @@ func can_air_jump() -> bool:
 	return air_count > 0
 
 
-# test용 죽음 타이머 생성. 시작하고 3초 뒤에 죽음
-func create_dead_timer():
-	var dead_timer = Timer.new()
-	dead_timer.one_shot = true
-	dead_timer.wait_time = 10
-	dead_timer.timeout.connect(on_dead_timer_timeout)
-	add_child(dead_timer)
-	dead_timer.start()
-
-func on_dead_timer_timeout() -> void:
-	GameManager.game_state_change.emit(GameManager.GameState.END)
-
 func _ready() -> void:
 	init_air_jump_timer()
 	air_count_change.connect(_on_air_count_change)
 	player_position_change.connect(_on_player_position_change)
 	player_velocity_change.connect(_on_player_velocity_change)
-	create_dead_timer();
 
 func _on_air_count_change(count: int) -> void:
 	air_count = count
