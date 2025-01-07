@@ -22,8 +22,13 @@ func init_air_jump_timer():
 	add_child(air_jump_timer)
 
 
-func restore_air_count(value):
-	air_count_change.emit(min(air_count + value, MAX_AIR_COUNT))
+func restore_air_count(value: int):
+	if air_count + value >= MAX_AIR_COUNT:
+		air_count_change.emit(MAX_AIR_COUNT)
+		air_jump_timer.stop()
+		return
+	
+	air_count_change.emit(air_count + value)
 
 
 func can_air_jump() -> bool:
