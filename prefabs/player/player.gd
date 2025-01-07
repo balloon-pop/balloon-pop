@@ -1,9 +1,14 @@
 extends CharacterBody2D
+class_name Player
 
 @export var gravity := 10
 # 좌우 스피드
 @export var SPEED := 70
 @export var JUMP_SPEED := -200
+
+
+@onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+
 
 const GRAVITY_ACCELERATION := 1.5
 const SPEED_ACCELERATION := 5
@@ -12,6 +17,8 @@ const MAX_JUMP_SPEED := -350
 
 func _ready():
 	GameManager.game_state_change.connect(_on_game_state_change)
+	visible_on_screen_notifier_2d.screen_exited.connect(_on_screen_exited)
+
 
 func _on_game_state_change(new_state: GameManager.GameState):
 	match new_state:
@@ -22,6 +29,9 @@ func _on_game_state_change(new_state: GameManager.GameState):
 			gravity = 40
 		GameManager.GameState.READY:
 			gravity = 10
+		GameManager.GameState.END:
+			velocity.y = 0
+			gravity = 0
 
 func air_jump():
 	if not PlayerManager.can_air_jump(): return
@@ -51,3 +61,7 @@ func _physics_process(_delta):
 		PlayerManager.player_velocity_change.emit(velocity)
 	
 	move_and_slide()
+
+
+func _on_screen_exited() -> void:
+	GameManager.game_state_change.emit(GameManager.GameState.END)
