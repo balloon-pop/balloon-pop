@@ -49,6 +49,7 @@ func _on_air_count_change(count: int) -> void:
 		air_jump_timer.start()
 	if count == 0:
 		air_jump_timer.stop()
+		air_jump_timer.start()
 
 func _on_player_position_change(_position: Vector2) -> void:
 	position = _position
