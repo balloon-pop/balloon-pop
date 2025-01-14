@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ia6vb6mahyu5"]
+[gd_scene load_steps=16 format=3 uid="uid://ia6vb6mahyu5"]
 
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Script" path="res://main.gd" id="1_pwm6e"]
@@ -13,55 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://bxy4x5ge77dqt" path="res://prefabs/start_hud/start_hud.tscn" id="10_epst0"]
 [ext_resource type="Script" path="res://prefabs/bomb_spawner/bomb_spawner.gd" id="10_frlgb"]
 [ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bomb/bomb.tscn" id="10_jgm1b"]
-[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="14_lj2fi"]
+[ext_resource type="PackedScene" uid="uid://bn1f647d3y4op" path="res://prefabs/end_hud/end_hud.tscn" id="14_r2yll"]
 
 [sub_resource type="Resource" id="Resource_omnjj"]
 script = ExtResource("5_arat3")
 duration = 1.0
 transition = 0
 ease = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_io04b"]
-font = ExtResource("14_lj2fi")
-font_size = 12
-font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
-
-[sub_resource type="LabelSettings" id="LabelSettings_okfxs"]
-font = ExtResource("14_lj2fi")
-font_size = 8
-font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
-
-[sub_resource type="LabelSettings" id="LabelSettings_kk4ai"]
-font = ExtResource("14_lj2fi")
-font_size = 12
-font_color = Color(0.171767, 0.783244, 0.481992, 0.803922)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ix050"]
-line_spacing = 0.0
-font = ExtResource("14_lj2fi")
-font_size = 6
-font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
-
-[sub_resource type="LabelSettings" id="LabelSettings_l5kao"]
-line_spacing = 0.0
-font = ExtResource("14_lj2fi")
-font_size = 10
-font_color = Color(1, 0.054902, 0.0627451, 0.701961)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_pwm6e")
@@ -127,91 +85,5 @@ bomb_scene = ExtResource("10_jgm1b")
 
 [node name="StartHud" parent="." instance=ExtResource("10_epst0")]
 
-[node name="EndHud" type="CanvasLayer" parent="."]
+[node name="EndHud" parent="." instance=ExtResource("14_r2yll")]
 visible = false
-
-[node name="Label" type="Label" parent="EndHud"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -46.0
-offset_right = 20.0
-offset_bottom = -23.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Oops!"
-label_settings = SubResource("LabelSettings_io04b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EndHud"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -36.5
-offset_right = 20.0
-offset_bottom = -13.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "you scored
-"
-label_settings = SubResource("LabelSettings_okfxs")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="CurrentScore" type="Label" parent="EndHud"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -24.0
-offset_right = 20.0
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "1,520"
-label_settings = SubResource("LabelSettings_kk4ai")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="EndHud"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 5.0
-offset_right = 20.0
-offset_bottom = 28.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "BEST SCORE"
-label_settings = SubResource("LabelSettings_ix050")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HighScore" type="Label" parent="EndHud"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 14.0
-offset_right = 20.0
-offset_bottom = 37.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "5,352"
-label_settings = SubResource("LabelSettings_l5kao")
-horizontal_alignment = 1
-vertical_alignment = 1
