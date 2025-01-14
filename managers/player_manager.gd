@@ -14,6 +14,7 @@ var air_count := 3
 var position: Vector2
 var velocity: Vector2
 var altitude: int
+var highest_altitude: int
 
 func init_air_jump_timer():
 	air_jump_timer = Timer.new()
@@ -50,6 +51,12 @@ func _on_air_count_change(count: int) -> void:
 func _on_player_position_change(_position: Vector2) -> void:
 	position = _position
 	altitude = round(position.y) / 5 * -1;
+	highest_altitude = max(ScoreManager.highest_altitude, altitude)
+
+	if altitude > ScoreManager.highest_altitude:
+		ScoreManager.highest_altitude = altitude
+		ScoreManager.save_high_score()
+
 	player_altitude_change.emit(altitude)
 
 func _on_player_velocity_change(_velocity: Vector2) -> void:

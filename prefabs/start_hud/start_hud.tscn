@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="1_02dxb"]
 [ext_resource type="Script" path="res://prefabs/start_hud/start_hud.gd" id="1_31yy4"]
-[ext_resource type="StyleBox" path="res://go_button.tres" id="2_ih7xl"]
+[ext_resource type="StyleBox" uid="uid://rg2fbgri1yl7" path="res://go_button.tres" id="2_ih7xl"]
 [ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="2_jqitr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ujdh"]
