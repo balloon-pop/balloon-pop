@@ -1,0 +1,135 @@
+[gd_scene load_steps=8 format=3 uid="uid://bn1f647d3y4op"]
+
+[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="1_0l83m"]
+[ext_resource type="Script" path="res://prefabs/end_hud/end_hud.gd" id="1_m3y8a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_io04b"]
+font = ExtResource("1_0l83m")
+font_size = 12
+font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_okfxs"]
+font = ExtResource("1_0l83m")
+font_size = 8
+font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kk4ai"]
+font = ExtResource("1_0l83m")
+font_size = 12
+font_color = Color(0.171767, 0.783244, 0.481992, 0.803922)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ix050"]
+line_spacing = 0.0
+font = ExtResource("1_0l83m")
+font_size = 6
+font_color = Color(0.768552, 0.00107948, 0.86133, 0.647059)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l5kao"]
+line_spacing = 0.0
+font = ExtResource("1_0l83m")
+font_size = 10
+font_color = Color(1, 0.054902, 0.0627451, 0.701961)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)
+
+[node name="EndHud" type="CanvasLayer"]
+script = ExtResource("1_m3y8a")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -46.0
+offset_right = 20.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Oops!"
+label_settings = SubResource("LabelSettings_io04b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -36.5
+offset_right = 20.0
+offset_bottom = -13.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "you scored
+"
+label_settings = SubResource("LabelSettings_okfxs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentScore" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1,520"
+label_settings = SubResource("LabelSettings_kk4ai")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 5.0
+offset_right = 20.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BEST SCORE"
+label_settings = SubResource("LabelSettings_ix050")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 14.0
+offset_right = 20.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "5,352"
+label_settings = SubResource("LabelSettings_l5kao")
+horizontal_alignment = 1
+vertical_alignment = 1

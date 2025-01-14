@@ -52,8 +52,10 @@ func _on_air_count_change(count: int) -> void:
 		air_jump_timer.start()
 
 func _on_player_position_change(_position: Vector2) -> void:
+	if velocity.y > 0: return
+
 	position = _position
-	altitude = round(position.y) / 5 * -1;
+	altitude = max(altitude, round(position.y) / 5 * -1)
 	highest_altitude = max(ScoreManager.highest_altitude, altitude)
 
 	if altitude > ScoreManager.highest_altitude:
