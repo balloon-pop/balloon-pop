@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://msugb25k5nsm"]
+[gd_scene load_steps=7 format=3 uid="uid://msugb25k5nsm"]
 
 [ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="1_s4fyy"]
 [ext_resource type="Script" path="res://prefabs/main_hud/main_hud.gd" id="1_vymi4"]
@@ -14,6 +14,12 @@ outline_size = 2
 font = ExtResource("2_n1h5s")
 font_size = 6
 font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_diwgw"]
+font = ExtResource("2_n1h5s")
+font_size = 4
+font_color = Color(0.758781, 0.227538, 0.504187, 1)
 outline_size = 2
 
 [node name="HUD" type="CanvasLayer"]
@@ -73,3 +79,12 @@ theme_override_font_sizes/font_size = 3
 text = "03"
 label_settings = SubResource("LabelSettings_krecp")
 vertical_alignment = 1
+
+[node name="HighestAltitudeLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = -34.0
+offset_top = 7.0
+offset_right = 6.0
+offset_bottom = 30.0
+text = "0m"
+label_settings = SubResource("LabelSettings_diwgw")

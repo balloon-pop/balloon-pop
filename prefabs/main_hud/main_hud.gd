@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var air_label: Label = $Control/AirLabel
 @onready var wind_texture: TextureProgressBar = $Control/TextureRect2
 @onready var altitude_label: Label = $Control/AltitudeLabel
+@onready var highest_altitude_label: Label = $Control/HighestAltitudeLabel
 
 func _ready() -> void:
 	PlayerManager.player_altitude_change.connect(_on_player_altitude_change)
@@ -17,6 +18,7 @@ func _process(_delta):
 
 func _on_player_altitude_change(altitude: int) -> void:
 	altitude_label.text = "%dm" % altitude
+	highest_altitude_label.text = "%dm" % ScoreManager.highest_altitude
 
 func _on_air_count_change(count: int) -> void:
 	air_label.text = "%02d" % count

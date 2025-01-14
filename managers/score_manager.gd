@@ -8,12 +8,12 @@ func _ready() -> void:
     load_high_score()
     print('Highest Altitude in _ready() (score_manager):', highest_altitude)
   
-
 func _on_change_game_state(state: GameManager.GameState) -> void:
     if state == GameManager.GameState.END:
-        print('Highest Altitude:', highest_altitude, '/PlayerManager.altitude: ', PlayerManager.altitude)
-        highest_altitude = max(highest_altitude, PlayerManager.altitude)
+        print('Highest Altitude:', highest_altitude, '/PlayerManager.highest_altitude: ', PlayerManager.highest_altitude)
+        highest_altitude = max(highest_altitude, PlayerManager.highest_altitude)
         save_high_score()
+        pass
 
 func load_high_score():
     var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
