@@ -3,6 +3,11 @@ extends Node
 const SAVE_PATH = "user://altitude.save"
 var highest_altitude = 0
 
+
+func init():
+    load_high_score()
+
+
 func _ready() -> void:
     GameManager.game_state_change.connect(_on_change_game_state)
     load_high_score()

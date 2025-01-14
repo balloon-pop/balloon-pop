@@ -12,6 +12,7 @@ func _ready() -> void:
 	PlayerManager.player_position_change.connect(_on_player_position_change)
 
 
+
 func _on_game_state_change(new_state: GameManager.GameState) -> void:
 	match new_state:
 		GameManager.GameState.PLAYING:
