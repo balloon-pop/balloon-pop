@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dwa2lmi8hdbsy"]
+
+[ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="1_y3bc2"]
+
+[resource]
+font = ExtResource("1_y3bc2")
+font_size = 12
+font_color = Color(1, 0.133333, 0.27451, 0.647059)
+outline_size = 4
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.85098)

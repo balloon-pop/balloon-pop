@@ -2,16 +2,9 @@
 
 [ext_resource type="FontFile" uid="uid://ctpmui6vj72ej" path="res://assets/DungGeunMo.ttf" id="1_02dxb"]
 [ext_resource type="Script" path="res://prefabs/start_hud/start_hud.gd" id="1_31yy4"]
-[ext_resource type="StyleBox" path="res://go_button.tres" id="2_ih7xl"]
+[ext_resource type="StyleBox" uid="uid://rg2fbgri1yl7" path="res://go_button.tres" id="2_ih7xl"]
 [ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="2_jqitr"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_6ujdh"]
-font = ExtResource("1_02dxb")
-font_size = 12
-font_color = Color(1, 0.133333, 0.27451, 0.647059)
-outline_size = 4
-shadow_size = 5
-shadow_color = Color(0, 0, 0, 0.85098)
+[ext_resource type="LabelSettings" uid="uid://dwa2lmi8hdbsy" path="res://title.tres" id="2_y7oqc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ne6u"]
 font = ExtResource("1_02dxb")
@@ -41,7 +34,7 @@ offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Balloon"
-label_settings = SubResource("LabelSettings_6ujdh")
+label_settings = ExtResource("2_y7oqc")
 horizontal_alignment = 1
 uppercase = true
 
@@ -58,7 +51,7 @@ offset_bottom = -11.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "POP"
-label_settings = SubResource("LabelSettings_6ujdh")
+label_settings = ExtResource("2_y7oqc")
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
