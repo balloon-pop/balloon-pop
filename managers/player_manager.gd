@@ -16,6 +16,14 @@ var velocity: Vector2
 var altitude: int
 var highest_altitude: int
 
+
+func init():
+	air_count = MAX_AIR_COUNT
+	altitude = 0
+	highest_altitude = 0
+	init_air_jump_timer()
+
+
 func init_air_jump_timer():
 	air_jump_timer = Timer.new()
 	air_jump_timer.one_shot = true
@@ -38,7 +46,7 @@ func can_air_jump() -> bool:
 
 
 func _ready() -> void:
-	init_air_jump_timer()
+	init()
 	air_count_change.connect(_on_air_count_change)
 	player_position_change.connect(_on_player_position_change)
 	player_velocity_change.connect(_on_player_velocity_change)

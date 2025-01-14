@@ -6,10 +6,15 @@ extends CanvasLayer
 @onready var altitude_label: Label = $Control/AltitudeLabel
 @onready var highest_altitude_label: Label = $Control/HighestAltitudeLabel
 
+
+func init() -> void:
+	air_label.label_settings.font_color = Color.BLACK
+
+
 func _ready() -> void:
 	PlayerManager.player_altitude_change.connect(_on_player_altitude_change)
 	PlayerManager.air_count_change.connect(_on_air_count_change)
-	print('MainHud Ready : ', ScoreManager.highest_altitude)
+	init()
 
 
 func _process(_delta):
