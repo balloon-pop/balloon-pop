@@ -8,6 +8,7 @@ radius = 5.0
 
 [node name="Wind" type="Area2D"]
 collision_layer = 0
+collision_mask = 1073741824
 script = ExtResource("1_upvc0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

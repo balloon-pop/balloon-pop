@@ -83,7 +83,6 @@ scale = Vector2(0.3, 0.3)
 shape = SubResource("CircleShape2D_qukog")
 
 [node name="HitBox" type="Area2D" parent="."]
-scale = Vector2(1.2, 1.2)
 collision_layer = 536870912
 collision_mask = 1073741824
 

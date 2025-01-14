@@ -15,7 +15,8 @@ func change_state(state: State) -> void:
 			animation_player.play("explode")
 
 func _on_hitBox_body_entered(_body: Node2D) -> void:
-	print("The Bomb collided with the balloon")
+	var current_air_count = max(PlayerManager.air_count - 1, 0)
+	PlayerManager.air_count_change.emit(current_air_count)
 
 func _on_bomb_screen_exited() -> void:
 	var is_bomb_below_player = position.y > PlayerManager.position.y
