@@ -116,7 +116,6 @@ follow_axis_lock = 1
 draw_limits = true
 
 [node name="MainHud" parent="." instance=ExtResource("7_knssi")]
-visible = false
 
 [node name="ItemSpawner" type="Node" parent="."]
 script = ExtResource("8_r1nw7")
@@ -129,6 +128,7 @@ bomb_scene = ExtResource("10_jgm1b")
 [node name="StartHud" parent="." instance=ExtResource("10_epst0")]
 
 [node name="EndHud" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Label" type="Label" parent="EndHud"]
 anchors_preset = 8
