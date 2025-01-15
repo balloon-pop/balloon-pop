@@ -5,20 +5,29 @@ class_name Player
 # 좌우 스피드
 @export var SPEED := 70
 @export var JUMP_SPEED := -200
-
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
-
-const GRAVITY_ACCELERATION := 1.5
+var gravity_acceleration := 1.5
 const SPEED_ACCELERATION := 5
 const MAX_JUMP_SPEED := -350
 
-
 func _ready():
 	GameManager.game_state_change.connect(_on_game_state_change)
+	PlayerManager.player_state_change.connect(_on_change_state)
 	visible_on_screen_notifier_2d.screen_exited.connect(_on_screen_exited)
+	animation_player.connect("animation_finished", _on_animation_end)
 
+func _on_change_state(state: PlayerManager.State) -> void:
+	match state:
+		PlayerManager.State.IDLE:
+			animation_player.play("idle")
+		PlayerManager.State.HURT:
+			animation_player.play("hurt")
+		PlayerManager.State.DEAD:
+			animation_player.play("dead")
+			gravity = 100
+			gravity_acceleration = 3.0
 
 func _on_game_state_change(new_state: GameManager.GameState):
 	match new_state:
@@ -43,10 +52,14 @@ func air_jump():
 	if velocity.y < MAX_JUMP_SPEED:
 		velocity.y = MAX_JUMP_SPEED
 
+	# 점프 중에 DEAD 상태로 변경되었을 때, 떨어지기 전 멈추기 위함
+	if PlayerManager.player_state == PlayerManager.State.DEAD:
+		velocity.y = 0
+
 
 func _physics_process(_delta):
 	var x_direction = Input.get_axis("ui_left", "ui_right")
-	velocity.y = move_toward(velocity.y, gravity, GRAVITY_ACCELERATION)
+	velocity.y = move_toward(velocity.y, gravity, gravity_acceleration)
 	
 	if GameManager.game_state == GameManager.GameState.PLAYING:
 		if x_direction:
@@ -65,3 +78,10 @@ func _physics_process(_delta):
 
 func _on_screen_exited() -> void:
 	GameManager.game_state_change.emit(GameManager.GameState.END)
+
+func _on_animation_end(anim_name) -> void:
+	if anim_name == "hurt":
+		if PlayerManager.air_count == 0:
+			PlayerManager.player_state_change.emit(PlayerManager.State.DEAD)
+		else:
+			PlayerManager.player_state_change.emit(PlayerManager.State.IDLE)
