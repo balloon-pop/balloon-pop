@@ -22,6 +22,8 @@ func _on_change_state(state: PlayerManager.State) -> void:
 	match state:
 		PlayerManager.State.IDLE:
 			animation_player.play("idle")
+		PlayerManager.State.JUMP:
+			animation_player.play("jump")
 		PlayerManager.State.HURT:
 			animation_player.play("hurt")
 		PlayerManager.State.DEAD:
@@ -44,6 +46,7 @@ func _on_game_state_change(new_state: GameManager.GameState):
 
 func air_jump():
 	if not PlayerManager.can_air_jump(): return
+	PlayerManager.player_state_change.emit(PlayerManager.State.JUMP)
 
 	var current_air_count = max(PlayerManager.air_count - 1, 0)
 	PlayerManager.air_count_change.emit(current_air_count)
@@ -76,6 +79,8 @@ func _on_screen_exited() -> void:
 	GameManager.game_state_change.emit(GameManager.GameState.END)
 
 func _on_animation_end(anim_name) -> void:
+	if anim_name == "jump":
+		PlayerManager.player_state_change.emit(PlayerManager.State.IDLE)
 	if anim_name == "hurt":
 		if PlayerManager.air_count == 0:
 			PlayerManager.player_state_change.emit(PlayerManager.State.DEAD)

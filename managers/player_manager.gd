@@ -1,7 +1,7 @@
 # PlayerManager
 extends Node
 
-enum State { IDLE, HURT, DEAD }
+enum State { IDLE, JUMP, HURT, DEAD }
 
 signal player_altitude_change(altitude: int)
 signal air_count_change(count: int)
@@ -47,7 +47,6 @@ func restore_air_count(value: int):
 
 func can_air_jump() -> bool:
 	return air_count > 0 and not player_state == State.DEAD
-
 
 func _ready() -> void:
 	init()

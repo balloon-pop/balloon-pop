@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7s2nc7vy2sro"]
+[gd_scene load_steps=10 format=3 uid="uid://c7s2nc7vy2sro"]
 
 [ext_resource type="Script" path="res://prefabs/player/player.gd" id="1_xo2jn"]
 [ext_resource type="Texture2D" uid="uid://c7bcq5jinqbfo" path="res://prefabs/player/player_sprite.png" id="2_hjxh0"]
@@ -29,10 +29,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.142857, 0.285714, 0.428571, 0.571429),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [14, 15, 16, 17, 18]
+"values": [26, 27, 28, 29, 30]
 }
 
 [sub_resource type="Animation" id="Animation_5hvbd"]
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [7, 8, 9, 10, 11, 10, 11]
+"values": [13, 14, 15, 16, 17, 18, 17]
 }
 
 [sub_resource type="Animation" id="Animation_b1jat"]
@@ -69,12 +69,30 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_l8xhq"]
+resource_name = "jump"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0543558, 0.198993, 0.550045, 0.568255),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 11, 12]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0jv41"]
 _data = {
 "RESET": SubResource("Animation_momoi"),
 "dead": SubResource("Animation_k1dh0"),
 "hurt": SubResource("Animation_5hvbd"),
-"idle": SubResource("Animation_b1jat")
+"idle": SubResource("Animation_b1jat"),
+"jump": SubResource("Animation_l8xhq")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aq7iy"]
@@ -94,7 +112,7 @@ autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_hjxh0")
-hframes = 7
+hframes = 13
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

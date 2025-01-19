@@ -39,6 +39,7 @@ follow_offset = Vector2(0, -25)
 follow_damping = true
 follow_damping_value = Vector2(0.15, 0.15)
 follow_axis_lock = 1
+draw_limits = true
 
 [node name="Parallax" type="Node2D" parent="."]
 position = Vector2(0, 50)
