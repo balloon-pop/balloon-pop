@@ -52,10 +52,6 @@ func air_jump():
 	if velocity.y < MAX_JUMP_SPEED:
 		velocity.y = MAX_JUMP_SPEED
 
-	# 점프 중에 DEAD 상태로 변경되었을 때, 떨어지기 전 멈추기 위함
-	if PlayerManager.player_state == PlayerManager.State.DEAD:
-		velocity.y = 0
-
 
 func _physics_process(_delta):
 	var x_direction = Input.get_axis("ui_left", "ui_right")

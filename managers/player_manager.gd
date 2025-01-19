@@ -46,7 +46,7 @@ func restore_air_count(value: int):
 
 
 func can_air_jump() -> bool:
-	return air_count > 0
+	return air_count > 0 and not player_state == State.DEAD
 
 
 func _ready() -> void:
