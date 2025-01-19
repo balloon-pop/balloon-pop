@@ -77,8 +77,9 @@ _data = {
 "idle": SubResource("Animation_b1jat")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5551e"]
-radius = 8.06226
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aq7iy"]
+radius = 13.0
+height = 54.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 1073741824
@@ -97,8 +98,8 @@ hframes = 7
 vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_5551e")
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_aq7iy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(1.5, 1.5)
