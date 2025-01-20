@@ -4,7 +4,7 @@ class_name Player
 @export var gravity := 10
 # 좌우 스피드
 @export var SPEED := 70
-@export var JUMP_SPEED := -120
+@export var JUMP_SPEED: float = -120
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
