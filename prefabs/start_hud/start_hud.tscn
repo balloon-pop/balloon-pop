@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://prefabs/start_hud/start_hud.gd" id="1_31yy4"]
 [ext_resource type="StyleBox" uid="uid://rg2fbgri1yl7" path="res://go_button.tres" id="2_ih7xl"]
 [ext_resource type="Texture2D" uid="uid://dfhybq3l8u1q6" path="res://prefabs/main_hud/wind.png" id="2_jqitr"]
-[ext_resource type="LabelSettings" path="res://title.tres" id="2_y7oqc"]
+[ext_resource type="LabelSettings" uid="uid://dwa2lmi8hdbsy" path="res://title.tres" id="2_y7oqc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3ne6u"]
 font = ExtResource("1_02dxb")

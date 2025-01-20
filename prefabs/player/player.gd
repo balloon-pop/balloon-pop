@@ -22,6 +22,8 @@ func _on_change_state(state: PlayerManager.State) -> void:
 	match state:
 		PlayerManager.State.IDLE:
 			animation_player.play("idle")
+		PlayerManager.State.JUMP:
+			animation_player.play("jump")
 		PlayerManager.State.HURT:
 			animation_player.play("hurt")
 		PlayerManager.State.DEAD:
@@ -44,6 +46,7 @@ func _on_game_state_change(new_state: GameManager.GameState):
 
 func air_jump():
 	if not PlayerManager.can_air_jump(): return
+	PlayerManager.player_state_change.emit(PlayerManager.State.JUMP)
 
 	var current_air_count = max(PlayerManager.air_count - 1, 0)
 	PlayerManager.air_count_change.emit(current_air_count)
@@ -51,10 +54,6 @@ func air_jump():
 	velocity.y = velocity.y + JUMP_SPEED if velocity.y < 0 else JUMP_SPEED
 	if velocity.y < MAX_JUMP_SPEED:
 		velocity.y = MAX_JUMP_SPEED
-
-	# 점프 중에 DEAD 상태로 변경되었을 때, 떨어지기 전 멈추기 위함
-	if PlayerManager.player_state == PlayerManager.State.DEAD:
-		velocity.y = 0
 
 
 func _physics_process(_delta):
@@ -80,6 +79,8 @@ func _on_screen_exited() -> void:
 	GameManager.game_state_change.emit(GameManager.GameState.END)
 
 func _on_animation_end(anim_name) -> void:
+	if anim_name == "jump":
+		PlayerManager.player_state_change.emit(PlayerManager.State.IDLE)
 	if anim_name == "hurt":
 		if PlayerManager.air_count == 0:
 			PlayerManager.player_state_change.emit(PlayerManager.State.DEAD)
