@@ -64,8 +64,8 @@ func _on_air_count_change(count: int) -> void:
 		air_jump_timer.stop()
 		air_jump_timer.start()
 
-	# FIXME: DEAD 상태 변경 테스트 하기 위해 임시로 넣은 것임
-	player_state_change.emit(State.DEAD)
+		# FIXME: DEAD 상태 변경 테스트 하기 위해 임시로 넣은 것임
+		player_state_change.emit(State.DEAD)
 
 func _on_player_position_change(_position: Vector2) -> void:
 	if velocity.y > 0: return
