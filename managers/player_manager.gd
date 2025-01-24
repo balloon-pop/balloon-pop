@@ -1,10 +1,13 @@
 # PlayerManager
 extends Node
 
+enum State { IDLE, JUMP, HURT, DEAD }
+
 signal player_altitude_change(altitude: int)
 signal air_count_change(count: int)
 signal player_position_change(position: Vector2)
 signal player_velocity_change(velocity: Vector2)
+signal player_state_change(state: State)
 
 const MAX_AIR_COUNT := 3
 const AIR_JUMP_COOL_TIME := 5
@@ -15,12 +18,13 @@ var position: Vector2
 var velocity: Vector2
 var altitude: int
 var highest_altitude: int
-
+var player_state = State.IDLE
 
 func init():
 	air_count = MAX_AIR_COUNT
 	altitude = 0
 	highest_altitude = 0
+	player_state = State.IDLE
 	init_air_jump_timer()
 
 
@@ -42,14 +46,14 @@ func restore_air_count(value: int):
 
 
 func can_air_jump() -> bool:
-	return air_count > 0
-
+	return air_count > 0 and not player_state == State.DEAD
 
 func _ready() -> void:
 	init()
 	air_count_change.connect(_on_air_count_change)
 	player_position_change.connect(_on_player_position_change)
 	player_velocity_change.connect(_on_player_velocity_change)
+	player_state_change.connect(_on_player_state_change)
 
 func _on_air_count_change(count: int) -> void:
 	air_count = count
@@ -58,6 +62,9 @@ func _on_air_count_change(count: int) -> void:
 	if count == 0:
 		air_jump_timer.stop()
 		air_jump_timer.start()
+
+		# FIXME: DEAD 상태 변경 테스트 하기 위해 임시로 넣은 것임
+		player_state_change.emit(State.DEAD)
 
 func _on_player_position_change(_position: Vector2) -> void:
 	if velocity.y > 0: return
@@ -74,3 +81,6 @@ func _on_player_position_change(_position: Vector2) -> void:
 
 func _on_player_velocity_change(_velocity: Vector2) -> void:
 	velocity = _velocity
+
+func _on_player_state_change(state: State) -> void:
+	player_state = state

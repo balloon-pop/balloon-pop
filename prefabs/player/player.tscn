@@ -1,49 +1,103 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7s2nc7vy2sro"]
+[gd_scene load_steps=10 format=3 uid="uid://c7s2nc7vy2sro"]
 
 [ext_resource type="Script" path="res://prefabs/player/player.gd" id="1_xo2jn"]
-[ext_resource type="Texture2D" uid="uid://cl3tujt4rjsup" path="res://prefabs/player/balloon.png" id="2_e1u4u"]
+[ext_resource type="Texture2D" uid="uid://c7bcq5jinqbfo" path="res://prefabs/player/player_sprite.png" id="2_hjxh0"]
 
 [sub_resource type="Animation" id="Animation_momoi"]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(0, 0)]
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_k1dh0"]
+resource_name = "dead"
+length = 0.65
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [26, 27, 28, 29, 30]
+}
+
+[sub_resource type="Animation" id="Animation_5hvbd"]
+resource_name = "hurt"
+length = 0.7
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16, 17, 18, 17]
 }
 
 [sub_resource type="Animation" id="Animation_b1jat"]
 resource_name = "idle"
-length = 0.6
 loop_mode = 1
 step = 0.15
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.3, 0.45),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_l8xhq"]
+resource_name = "jump"
+length = 0.6
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0426139, 0.127346, 0.482105, 0.536512),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [7, 8, 9, 11, 12]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0jv41"]
 _data = {
 "RESET": SubResource("Animation_momoi"),
-"idle": SubResource("Animation_b1jat")
+"dead": SubResource("Animation_k1dh0"),
+"hurt": SubResource("Animation_5hvbd"),
+"idle": SubResource("Animation_b1jat"),
+"jump": SubResource("Animation_l8xhq")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5551e"]
-radius = 8.06226
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aq7iy"]
+radius = 13.0
+height = 54.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 1073741824
@@ -57,12 +111,13 @@ libraries = {
 autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_e1u4u")
-hframes = 4
+texture = ExtResource("2_hjxh0")
+hframes = 13
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_5551e")
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_aq7iy")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(1.5, 1.5)
