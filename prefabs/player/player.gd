@@ -4,13 +4,13 @@ class_name Player
 @export var gravity := 10
 # 좌우 스피드
 @export var SPEED := 70
-@export var JUMP_SPEED := -200
+@export var JUMP_SPEED: float = -120
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var visible_on_screen_notifier_2d: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
-var gravity_acceleration := 1.5
+var gravity_acceleration := 1.2
 const SPEED_ACCELERATION := 5
-const MAX_JUMP_SPEED := -350
+const MAX_JUMP_SPEED := -250
 
 func _ready():
 	GameManager.game_state_change.connect(_on_game_state_change)
@@ -36,7 +36,7 @@ func _on_game_state_change(new_state: GameManager.GameState):
 		GameManager.GameState.PLAYING:
 			velocity.y = JUMP_SPEED
 			if velocity.y < MAX_JUMP_SPEED:
-				velocity.y = MAX_JUMP_SPEED	
+				velocity.y = MAX_JUMP_SPEED
 			gravity = 40
 		GameManager.GameState.READY:
 			gravity = 10
@@ -51,7 +51,7 @@ func air_jump():
 	var current_air_count = max(PlayerManager.air_count - 1, 0)
 	PlayerManager.air_count_change.emit(current_air_count)
 
-	velocity.y = JUMP_SPEED
+	velocity.y = velocity.y + JUMP_SPEED if velocity.y < 0 else JUMP_SPEED
 	if velocity.y < MAX_JUMP_SPEED:
 		velocity.y = MAX_JUMP_SPEED
 

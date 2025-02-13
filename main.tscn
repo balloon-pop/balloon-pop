@@ -37,7 +37,7 @@ texture_filter = 1
 texture = ExtResource("1_nbwm3")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Parallax"]
-scroll_scale = Vector2(1, 1.5)
+scroll_scale = Vector2(1, 1.1)
 repeat_size = Vector2(0, 100)
 repeat_times = 3
 metadata/_edit_group_ = true

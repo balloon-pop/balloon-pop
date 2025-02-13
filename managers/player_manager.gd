@@ -1,7 +1,7 @@
 # PlayerManager
 extends Node
 
-enum State { IDLE, JUMP, HURT, DEAD }
+enum State {IDLE, JUMP, HURT, DEAD}
 
 signal player_altitude_change(altitude: int)
 signal air_count_change(count: int)
@@ -9,11 +9,11 @@ signal player_position_change(position: Vector2)
 signal player_velocity_change(velocity: Vector2)
 signal player_state_change(state: State)
 
-const MAX_AIR_COUNT := 3
-const AIR_JUMP_COOL_TIME := 5
+const MAX_AIR_COUNT := 5
+const AIR_JUMP_COOL_TIME := 10
 
 var air_jump_timer: Timer
-var air_count := 3
+var air_count := MAX_AIR_COUNT
 var position: Vector2
 var velocity: Vector2
 var altitude: int

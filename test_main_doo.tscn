@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://baegkoc4y4m70"]
+[gd_scene load_steps=11 format=3 uid="uid://curibn4osw5nr"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_2t00c"]
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_sgqly"]
@@ -65,7 +65,6 @@ texture = ExtResource("2_fem52")
 
 [node name="Player" parent="." instance=ExtResource("3_t8ypo")]
 scale = Vector2(0.35, 0.35)
-JUMP_SPEED = -150
 
 [node name="MainHud" parent="." instance=ExtResource("7_dj6ty")]
 

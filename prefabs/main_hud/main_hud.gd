@@ -9,6 +9,7 @@ extends CanvasLayer
 
 func init() -> void:
 	air_label.label_settings.font_color = Color.BLACK
+	air_label.text = "%02d" % PlayerManager.air_count
 
 
 func _ready() -> void:
