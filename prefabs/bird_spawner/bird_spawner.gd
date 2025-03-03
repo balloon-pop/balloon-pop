@@ -19,7 +19,7 @@ func spawn_bird() -> void:
 	
 	if can_spawn_bird:
 		var bird_instance = bird_scene.instantiate()
-		bird_instance.scale = Vector2(0.4, 0.4)
+		bird_instance.scale = Vector2(0.3, 0.3)
 
 		var random_x = PlayerManager.position.x + randf_range(-10, 10)
 		var random_y = PlayerManager.position.y - [50, 100, 200][randi() % 3]
