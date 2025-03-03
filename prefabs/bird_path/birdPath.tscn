@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqd5rkpnvspwk"]
+
+[ext_resource type="Script" path="res://prefabs/bird_path/path_follow_2d.gd" id="1_768mv"]
+[ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bird/bird.tscn" id="2_r6as5"]
+
+[sub_resource type="Curve2D" id="Curve2D_dsm82"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -35, -6, 0, 0, 0, 0, -29.9902, -3.47368, -14.2952, -2.52269, 14.2952, 2.52269, -2, 3.81818, -22.2021, -1.8709, 22.2021, 1.8709, 44, 6, 0, 0, 0, 0, 91.4951, 10.421)
+}
+point_count = 5
+
+[node name="BirdPath" type="Path2D"]
+position = Vector2(-18.0543, -1.25)
+scale = Vector2(0.79845, 0.791667)
+curve = SubResource("Curve2D_dsm82")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-35, -6)
+rotation = 0.467064
+script = ExtResource("1_768mv")
+
+[node name="Bird" parent="PathFollow2D" instance=ExtResource("2_r6as5")]

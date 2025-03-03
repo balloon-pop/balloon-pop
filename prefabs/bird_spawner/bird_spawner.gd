@@ -15,14 +15,14 @@ func _ready() -> void:
 
 func spawn_bird() -> void:
 	var bird_count = get_tree().get_nodes_in_group('bird').size()
-	var can_spawn_bird = bird_count < MAX_BIRD_COUNT && PlayerManager.velocity.y < 0
+	var can_spawn_bird = bird_count < MAX_BIRD_COUNT && PlayerManager.velocity.y < -30
 	
 	if can_spawn_bird:
 		var bird_instance = bird_scene.instantiate()
-		bird_instance.scale = Vector2(0.3, 0.3)
+		bird_instance.scale = Vector2(0.75, 0.75)
 
-		var random_x = PlayerManager.position.x + randf_range(-10, 10)
-		var random_y = PlayerManager.position.y - [50, 100, 200][randi() % 3]
+		var random_x = PlayerManager.position.x + randf_range(-20, -10)
+		var random_y = PlayerManager.position.y - randf_range(60, 80)
 		bird_instance.position = Vector2(random_x, random_y)
 
 		add_child(bird_instance)

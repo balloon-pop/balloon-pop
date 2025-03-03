@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ceg5t28yq0k4j" path="res://prefabs/wind/wind.tscn" id="9_mssli"]
 [ext_resource type="PackedScene" uid="uid://bxy4x5ge77dqt" path="res://prefabs/start_hud/start_hud.tscn" id="10_epst0"]
 [ext_resource type="Script" path="res://prefabs/bird_spawner/bird_spawner.gd" id="10_frlgb"]
-[ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bird/bird.tscn" id="12_imww1"]
+[ext_resource type="PackedScene" uid="uid://cqd5rkpnvspwk" path="res://prefabs/bird_path/birdPath.tscn" id="11_pchqx"]
 [ext_resource type="PackedScene" uid="uid://bn1f647d3y4op" path="res://prefabs/end_hud/end_hud.tscn" id="14_r2yll"]
 
 [sub_resource type="Resource" id="Resource_omnjj"]
@@ -79,7 +79,7 @@ item = Array[PackedScene]([ExtResource("9_mssli")])
 
 [node name="BirdSpawner" type="Node" parent="."]
 script = ExtResource("10_frlgb")
-bird_scene = ExtResource("12_imww1")
+bird_scene = ExtResource("11_pchqx")
 
 [node name="MainHud" parent="." instance=ExtResource("7_knssi")]
 visible = false
