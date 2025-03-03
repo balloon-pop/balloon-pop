@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://38c2dpg1vcml"]
 
-[ext_resource type="Texture2D" uid="uid://bveh0m8drr552" path="res://prefabs/bomb/bomb.png" id="1_bwpac"]
-[ext_resource type="Script" path="res://prefabs/bomb/bomb.gd" id="1_u7s03"]
+[ext_resource type="Script" path="res://prefabs/bird/bird.gd" id="1_bg202"]
+[ext_resource type="Texture2D" uid="uid://cw4vvx800esbg" path="res://prefabs/bird/bird.png" id="2_o7aru"]
 
 [sub_resource type="Animation" id="Animation_7d4g7"]
 length = 0.001
@@ -62,15 +62,15 @@ _data = {
 radius = 8.33333
 height = 20.0
 
-[node name="Bomb" type="Area2D" groups=["bomb"]]
+[node name="Bird" type="Area2D" groups=["bird"]]
 scale = Vector2(0.4, 0.4)
 collision_layer = 2147483648
 collision_mask = 1073741824
-script = ExtResource("1_u7s03")
+script = ExtResource("1_bg202")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bwpac")
-hframes = 9
+texture = ExtResource("2_o7aru")
+hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

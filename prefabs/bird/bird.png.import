@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bveh0m8drr552"
-path="res://.godot/imported/bomb.png-5b67c94f5c6e2497e6fdf3080721625c.ctex"
+uid="uid://cw4vvx800esbg"
+path="res://.godot/imported/bird.png-53fc3d5719e760860a336200c5ec929e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://prefabs/bomb/bomb.png"
-dest_files=["res://.godot/imported/bomb.png-5b67c94f5c6e2497e6fdf3080721625c.ctex"]
+source_file="res://prefabs/bird/bird.png"
+dest_files=["res://.godot/imported/bird.png-53fc3d5719e760860a336200c5ec929e.ctex"]
 
 [params]
 
