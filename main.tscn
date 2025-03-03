@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ia6vb6mahyu5"]
+[gd_scene load_steps=16 format=3 uid="uid://ia6vb6mahyu5"]
 
 [ext_resource type="Texture2D" uid="uid://bpcfive2f5e7w" path="res://assets/sky-bg.png" id="1_nbwm3"]
 [ext_resource type="Script" path="res://main.gd" id="1_pwm6e"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ceg5t28yq0k4j" path="res://prefabs/wind/wind.tscn" id="9_mssli"]
 [ext_resource type="PackedScene" uid="uid://bxy4x5ge77dqt" path="res://prefabs/start_hud/start_hud.tscn" id="10_epst0"]
 [ext_resource type="Script" path="res://prefabs/bird_spawner/bird_spawner.gd" id="10_frlgb"]
+[ext_resource type="PackedScene" uid="uid://38c2dpg1vcml" path="res://prefabs/bird/bird.tscn" id="12_imww1"]
 [ext_resource type="PackedScene" uid="uid://bn1f647d3y4op" path="res://prefabs/end_hud/end_hud.tscn" id="14_r2yll"]
 
 [sub_resource type="Resource" id="Resource_omnjj"]
@@ -72,15 +73,16 @@ follow_damping_value = Vector2(0.15, 0.15)
 follow_axis_lock = 1
 draw_limits = true
 
-[node name="MainHud" parent="." instance=ExtResource("7_knssi")]
-visible = false
-
 [node name="ItemSpawner" type="Node" parent="."]
 script = ExtResource("8_r1nw7")
 item = Array[PackedScene]([ExtResource("9_mssli")])
 
 [node name="BirdSpawner" type="Node" parent="."]
 script = ExtResource("10_frlgb")
+bird_scene = ExtResource("12_imww1")
+
+[node name="MainHud" parent="." instance=ExtResource("7_knssi")]
+visible = false
 
 [node name="StartHud" parent="." instance=ExtResource("10_epst0")]
 
